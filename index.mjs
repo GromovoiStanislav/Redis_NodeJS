@@ -7,8 +7,6 @@ const client = createClient({
 client.on('error', (err) => console.log('Redis Client Error', err));
 
 await client.connect();
-//client.flushAll(); //Очистка ВСЕХ данных
-client.flushDb(); //Очистка ВСЕХ данных
 
 //Все команды Redis https://redis.io/commands/
 
@@ -220,7 +218,18 @@ for await (const key of client.scanIterator({
   console.log('scanIterator', key, await client.get('' + key));
 }
 
-//Exit
+console.log('===================Auto-Pipelining===========================');
+
+await Promise.all([
+  client.set('Tm9kZSBSZWRpcw==', 'users:1'),
+  client.sAdd('users:1:tokens', 'Tm9kZSBSZWRpcw=='),
+]);
+
+console.log('===================Exit===========================');
+
+//client.flushAll(); //Очистка ВСЕХ данных
+client.flushDb(); //Очистка ВСЕХ данных
+
 setTimeout(async () => {
   if (client) {
     await client.quit(); //дожидается выполнения начавшихся команд
