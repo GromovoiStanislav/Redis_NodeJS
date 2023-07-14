@@ -2,3 +2,4 @@
 
 - 1 - Redis Examples (JS)
 - 2 - Redis PubSub with Express (JS)
+- 3 - Securing JWT using Redis (JS)
