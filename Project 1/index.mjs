@@ -120,7 +120,7 @@ await client.lInsert('mylist', 'BEFORE', 'two', 'one');
 await client.lInsert('mylist', 'AFTER', '1', '0');
 console.log('lInsert', await client.lRange('mylist', 0, -1)); //[ '4', '3', '2', '1', '0','one', 'two' ]
 
-console.log('lPos', await client.lPos('mylist', '0'));
+//console.log('lPos', await client.lPos('mylist', '0'));
 //await client.lMove('mylist', 'mylist2', 'RIGHT', 'LEFT');
 console.log('rPopLPush', await client.rPopLPush('mylist', 'mylist2'));
 console.log('mylist', await client.lRange('mylist', 0, -1)); //[ '4', '3', '2', '1', '0', 'one' ]
@@ -228,7 +228,7 @@ await Promise.all([
 console.log('===================Exit===========================');
 
 //client.flushAll(); //Очистка ВСЕХ данных
-client.flushDb(); //Очистка ВСЕХ данных
+await client.flushDb(); //Очистка ВСЕХ данных
 
 setTimeout(async () => {
   if (client) {
