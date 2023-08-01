@@ -7,4 +7,5 @@
 - 5 - Integrate Redis PUB/SUB in Express (JS)
 - 6 - Using RedisJSON is a NoSQL database with Express (JS)
 - 7 - Redis cache simple example with Express (JS)
-- 8 - Rate Limiting with Redis simple example with Express MVC (TS)
+- 8 - Rate limiting with Redis simple example with Express MVC (TS)
+- 9 - Rate limiting with Redis simple example with Express API (TS)
