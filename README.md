@@ -9,3 +9,4 @@
 - 7 - Redis cache simple example with Express (JS)
 - 8 - Rate limiting with Redis simple example with Express MVC (TS)
 - 9 - Rate limiting with Redis simple example with Express API (TS)
+- 10 - Redis cache simple example with Express (JS)
