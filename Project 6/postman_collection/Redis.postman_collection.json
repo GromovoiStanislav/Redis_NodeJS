@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "68e1ee95-460f-4a62-bdec-cae92940555b",
+		"name": "Redis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "tasks/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/01H6ZWSBFXAXSYSRAE5CFXQWTY",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"01H6ZWSBFXAXSYSRAE5CFXQWTY"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tasks/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/01H6ZY1JZ9NEM1YX0RRD3YSYBD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"01H6ZY1JZ9NEM1YX0RRD3YSYBD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tasks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Task 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tasks/completed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/completed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"completed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tasks/uncompleted",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/uncompleted",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"uncompleted"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tasks/name/:name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/name/Task%201",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"name",
+						"Task%201"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tasks/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/01H6ZY1JZ9NEM1YX0RRD3YSYBD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"01H6ZY1JZ9NEM1YX0RRD3YSYBD"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
