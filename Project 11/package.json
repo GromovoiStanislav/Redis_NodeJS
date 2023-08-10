@@ -1,0 +1,21 @@
+{
+  "name": "express-redis",
+  "version": "0.0.1",
+  "description": "Express Quick Start for Redis",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "redis",
+    "express"
+  ],
+  "author": "Redis Developer",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "redis": "^4.6.7"
+  }
+}
