@@ -11,11 +11,19 @@ async function send(queueKey, message) {
   console.log('Запись добавлена в очередь. Длина очереди:', lenght);
 }
 
-send('queue', 'Новое сообщение 1');
-send('queue', 'Новое сообщение 2');
-send('queue', 'Новое сообщение 3');
-send('queue', 'Новое сообщение 4');
-send('queue', 'Новое сообщение 5');
+let k1 = 0,
+  k2 = 0;
+
+setInterval(() => {
+  send('queue1', `Новое сообщение для queue1 ${++k1}`);
+  send('queue1', `Новое сообщение для queue1 ${++k1}`);
+  send('queue1', `Новое сообщение для queue1 ${++k1}`);
+}, 5000);
+
+setInterval(() => {
+  send('queue1', `Новое сообщение для queue2 ${++k2}`);
+  send('queue1', `Новое сообщение для queue2 ${++k2}`);
+}, 10000);
 
 // Закрываем соединение с Redis
-client.quit();
+//client.quit();
