@@ -12,3 +12,4 @@
 - 10 - Redis cache simple example with Express (JS)
 - 11 - Redis Express MVC Counter Application (JS)
 - 12 - Redis queue example (JS)
+- 13 - Using RedisJSON is a NoSQL database with Express (JS)

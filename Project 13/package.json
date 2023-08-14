@@ -1,0 +1,18 @@
+{
+  "name": "redis-om-express",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "redis": "^4.6.7",
+    "redis-om": "^0.4.0"
+  }
+}

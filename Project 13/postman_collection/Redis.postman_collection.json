@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "68e1ee95-460f-4a62-bdec-cae92940555b",
+		"name": "Redis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"Kerry\",\r\n  \"lastName\": \"Livgren\",\r\n  \"age\": 72,\r\n  \"verified\": false,\r\n  \"location\": {\r\n    \"longitude\": -95.689,\r\n    \"latitude\": 39.056\r\n  },\r\n  \"locationUpdated\" : \"2022-01-01T12:00:00.000Z\",\r\n  \"skills\": [\r\n    \"poetry\",\r\n    \"philosophy\",\r\n    \"songwriting\",\r\n    \"guitar\"\r\n  ],\r\n  \"personalStatement\": \"All we are is dust in the wind.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "persons/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/persons/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"persons",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "persons/old-enough-to-drink-in-america",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/persons/old-enough-to-drink-in-america",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"persons",
+						"old-enough-to-drink-in-america"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "persons/verified-drinkers-with-last-name/:lastName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/persons/verified-drinkers-with-last-name/Jett",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"persons",
+						"verified-drinkers-with-last-name",
+						"Jett"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "persons/with-statement-containing/:text",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/persons/with-statement-containing/rock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"persons",
+						"with-statement-containing",
+						"rock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "persons/non-verified",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/persons/non-verified",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"persons",
+						"non-verified"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "persons/by-last-name/:lastName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/persons/by-last-name/Jett",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"persons",
+						"by-last-name",
+						"Jett"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "persons/near/:lng,:lat/radius/:radius",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/persons/near/-75.274,40.004/radius/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"persons",
+						"near",
+						"-75.274,40.004",
+						"radius",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "person/:id/location/:lng,:lat",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/person/01H7SCFX7XHNHYX11RCPEZXX8M/location/-95.787,40.058",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"person",
+						"01H7SCFX7XHNHYX11RCPEZXX8M",
+						"location",
+						"-95.787,40.058"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "person/:id/locationHistory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/person/01H7SCFX7XHNHYX11RCPEZXX8M/locationHistory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"person",
+						"01H7SCFX7XHNHYX11RCPEZXX8M",
+						"locationHistory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "person/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/person/01H7SCFX7XHNHYX11RCPEZXX8M",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"person",
+						"01H7SCFX7XHNHYX11RCPEZXX8M"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "person/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/person/01H7SCFX7XHNHYX11RCPEZXX8M",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"person",
+						"01H7SCFX7XHNHYX11RCPEZXX8M"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "person/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"verified\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/person/01H7SC27SGHTXZ84KMY5EQVP1A",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"person",
+						"01H7SC27SGHTXZ84KMY5EQVP1A"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
