@@ -14,3 +14,4 @@
 - 12 - Redis queue example (JS)
 - 13 - Using RedisJSON is a NoSQL database with Express (JS)
 - 14 - Using RedisJSON is a NoSQL database with Express (JS)
+- 15 - Simple user management app using Express MVC and Redis (JS)
