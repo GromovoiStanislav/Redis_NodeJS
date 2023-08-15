@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "68e1ee95-460f-4a62-bdec-cae92940555b",
+		"name": "Redis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "songs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Big Rewrite\",\r\n  \"artist\": \"Dylan Beattie and the Linebreakers\",\r\n  \"genres\": [\"folk rock\", \"parody\", \"rock\"],\r\n  \"lyrics\": \"A long, long time ago, I wrote in assembler,\\\\nAnd those op codes used to make me smile,\\\\nI wrote my Hello World program, in 16 kilobytes of RAM,\\\\nNo function calls, no do() or for() or while()\\\\n\\\\nI’d sit all night in rapt frustration,\\\\nTrying new optimisations,\\\\nForgot to sleep or eat\\\\nI would not admit defeat,\\\\nEvery change meant more confusion,\\\\nSurrounded by my own delusions,\\\\nFinally came to a conclusion,\\\\nI’d do, a big rewrite\\\\n\\\\nChorus\\\\nIt’s high time, we reviewed our design,\\\\nThe code behind our system is just too byzantine,\\\\nWe’ll rewrite all the legacy and take it off line,\\\\nAnd it’s gonna compile first time,\\\\nIt’s gonna compile first time,\\\\n\\\\nDid you have a BBC,\\\\nor a Commodore, or a VIC-20,\\\\nEight bits wide, and slow as hell,\\\\nOr did you start out on the Unix scene,\\\\nOr a VMS or a PDP,\\\\nYour own account, with email and a shell?\\\\nIt’s not like anyone really cares,\\\\nwe all got started out somewhere,\\\\nA keyboard and a screen,\\\\nlisting in a magazine,\\\\nWe typed those games in, key by key,\\\\nConvinced our code was typo-free\\\\nBut we knew that, eventually,\\\\nWe’d start, the big rewrite\\\\n\\\\nCHORUS\\\\n\\\\nNow for ten years, we’ve been running code,\\\\nFrom PHP to Rust and Node,\\\\nBut that’s not how it used to be\\\\nWhen I learned to code, it was a different age,\\\\nTurbo Pascal was all the rage,\\\\nAnd we couldn’t wait to install Windows 3,\\\\nWell 640K of memory,\\\\nShould be enough for anybody,\\\\nAnd for multitasking code,\\\\nYou had to run in protected mode,\\\\nYou’d work with your bible by your side,\\\\nPeter Norton’s MS-DOS guide,\\\\nBut you’d already worked out, deep inside,\\\\nYou’d do, a big, rewrite\\\\n\\\\nCHORUS\\\\n\\\\nDial-up modem, straining to upload ‘em\\\\nSpitting out websites fast as we could code ‘em,\\\\nShare price high and rising fast,\\\\nWaiting for that big-time IPO,\\\\nGonna be millionaires, don’t you know,\\\\nI guess it was all just too good to last,\\\\nWe thought the web was the, promised land,\\\\nCoded our HTML by hand,\\\\nBut when we put it live,\\\\nIt didn’t work in IE5,\\\\nWe started to feel like we were cursed,\\\\nThe dotcom bubble, finally burst,\\\\nAnd then things went from, bad to worse,\\\\nSo we did, a big, rewrite\\\\n\\\\nCHORUS\\\\n\\\\nOh, there we were shouting out loud,\\\\nMove everything to the cloud,\\\\nAnd host it on virtual machines,\\\\nElastic scale to cope with load,\\\\nInfrastructure built on code,\\\\nThough no-one’s sure what devops really means,\\\\nI sat and I watched the counters climb,\\\\nWishing I got paid overtime,\\\\nThen the MongoDB failed,\\\\nGuess it wasn’t quite web scale,\\\\nWe lost the whole availability zone,\\\\nI couldn’t get tech support, on the phone,\\\\nThat’s the point when I wish I’d known,\\\\nThey’d done, a big rewrite\\\\n\\\\nCHORUS\\\\n\\\\nI did my time, I paid my dues\\\\nI did my exit interviews,\\\\nThen turned around, and walked away,\\\\nI had a dream, I had a plan,\\\\nFed up of working, for the man,\\\\nThis time I would do everything, my way\\\\nI launched the perfect MVP\\\\nOnline, for all the world to see,\\\\nWorking in a new style\\\\nfast and lean and agile,\\\\nI listened to all of their requests,\\\\nI added features, with unit tests,\\\\nBut then one day… you know the rest,\\\\nI did, the big rewrite.\",\r\n  \"music\": \"\\\"American Pie\\\" by Don McLean\",\r\n  \"year\": 2018,\r\n  \"duration\": 509,\r\n  \"link\": \"https://www.youtube.com/watch?v=xCGu5Z_vaps\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/songs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/songs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/song/01H7VZ5M00C0VMS1TTDHDPAFZY",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"song",
+						"01H7VZ5M00C0VMS1TTDHDPAFZY"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/song/01H7VZ5M00C0VMS1TTDHDPAFZY",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"song",
+						"01H7VZ5M00C0VMS1TTDHDPAFZY"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs/by-artist/:artist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/songs/by-artist/Dylan Beattie and the Linebreakers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"songs",
+						"by-artist",
+						"Dylan Beattie and the Linebreakers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs/by-genre/:genre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/songs/by-genre/disco",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"songs",
+						"by-genre",
+						"disco"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs/with-lyrics/:lyrics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/songs/with-lyrics/browsing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"songs",
+						"with-lyrics",
+						"browsing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs/between-years/:start-:stop",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/songs/between-years/2000-2020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"songs",
+						"between-years",
+						"2000-2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"D M C A\",\r\n  \"artist\": \"Dylan Beattie and the Linebreakers\",\r\n  \"genres\": [\"disco\", \"funk/soul\", \"parody\"],\r\n  \"lyrics\": \"Young man, there’s no need to feel down,\\\\nI said, young man, you’ve been browsing around,\\\\nI said, young man, what’s that website you’ve found,\\\\nWith those hi-def movie downloads,\\\\n\\\\nYoung man, look at all of those files,\\\\nI said, young man, you’ll be here for a while,\\\\nYou can download, anything you desire,\\\\nTill your router catches fire,\\\\n\\\\nCHORUS:\\\\nYou’re violating the D M C A , violating the D M C A,\\\\nThey got everything, you can find it online, you can download it any time\\\\nBy violating the D M C A, violating the D M C A,\\\\nAll the new DVDs, special interest movies, even Taylor Swift MP3s,\\\\n\\\\nYoung man, well you couldn’t resist,\\\\nI said young man, now your name’s on a list,\\\\nI said, young man, got your cease and desist,\\\\nBut you got to know this one thing,\\\\n\\\\nNo man, ever serves any time,\\\\nI said young man, maybe you’ll pay a fine,\\\\nAnd tomorrow, you will be back online,\\\\nYou’ll be downloading day and night,\\\\n\\\\nCHORUS\\\\n\\\\nYoung man, back when I was your age,\\\\nIt was usenet, not a link on a page,\\\\nalt dot binaries, it was where we could go,\\\\nIf we wanted things to download,\\\\n\\\\nNapster, came along with a splash,\\\\nRecord labels, scared of losing their cash,\\\\nGot it shut down, by the D M C A,\\\\nSo we moved to the Pirate Bay\",\r\n  \"music\": \"\\\"Y.M.C.A.\\\" by The Village People\",\r\n  \"year\": 2017,\r\n  \"duration\": 218,\r\n  \"link\": \"https://www.youtube.com/watch?v=mQnF1BBBtXs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/song/01H7VZ5M00C0VMS1TTDHDPAFZY",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"song",
+						"01H7VZ5M00C0VMS1TTDHDPAFZY"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
