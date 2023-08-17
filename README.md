@@ -17,3 +17,4 @@
 - 15 - Simple user management app using Express MVC and Redis as a NoSQL database (JS)
 - 16 - Redis caching with Express (JS)
 - 17 - Using RedisJSON is a NoSQL database with Express (JS)
+- 18 - Redis caching simple example (JS)

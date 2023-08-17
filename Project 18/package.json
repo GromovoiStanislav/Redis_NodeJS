@@ -1,0 +1,15 @@
+{
+  "name": "redis-caching",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^5.7.0",
+    "redis": "^4.6.7"
+  }
+}
