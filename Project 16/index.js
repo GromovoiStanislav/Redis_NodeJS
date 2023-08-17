@@ -13,9 +13,6 @@ const DEFAULT_EXPIRATION = 30; //in seconds
 const app = express();
 app.use(express.json());
 
-app.get('/', async (req, res, next) => {
-  res.render('searchusers');
-});
 
 app.get('/todos/:todoId', getTodoData);
 
