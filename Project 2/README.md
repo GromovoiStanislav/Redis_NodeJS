@@ -1,1 +1,1 @@
-## Redis PubSub with Express (JS)
+## Redis(ioredis) PubSub with Express (JS)
