@@ -1,19 +1,24 @@
 import express from 'express';
-import { createClient } from 'redis';
+import Redis from 'ioredis';
 import axios from 'axios';
 
 // Create Redis Client
-let redisClient = createClient({ url: `redis://127.0.0.1:6379` });
-redisClient.on('error', (error) => console.error(error));
-await redisClient.connect();
+const redisClient = new Redis('redis://127.0.0.1:6379');
+//const redisClient = new Redis(6379, '127.0.0.1');
+// const redisClient = new Redis({
+//   port: 6379, // Redis port
+//   host: "127.0.0.1", // Redis host
+//   db: 0, // Defaults to 0
+// });
 console.log('Connected to Redis...');
 const EX = 10;
 
 const app = express();
-app.use(express.json())
+app.use(express.json());
 
 app.post('/', async (req, res, next) => {
   const { key, value } = req.body;
+
   const response = await redisClient.set(key, JSON.stringify(value));
   res.send(response);
 });
@@ -38,9 +43,7 @@ app.get('/posts', async (req, res, next) => {
     const { data } = await axios.get(
       'https://jsonplaceholder.typicode.com/posts'
     );
-    await redisClient.set('posts', JSON.stringify(data), {
-      EX,
-    });
+    await redisClient.set('posts', JSON.stringify(data), 'EX', EX);
     console.log('new data cached');
     res.json(data);
   } catch (error) {
@@ -60,9 +63,7 @@ app.get('/posts/:id', async (req, res, next) => {
     const { data } = await axios.get(
       `https://jsonplaceholder.typicode.com/posts/${id}`
     );
-    await redisClient.set(`post-${id}`, JSON.stringify(data), {
-      EX,
-    });
+    await redisClient.set(`post-${id}`, JSON.stringify(data), 'EX', EX);
     console.log('new data cached');
     res.json(data);
   } catch (error) {
@@ -79,7 +80,7 @@ const getOrSetCache = async (key, cb) => {
     return JSON.parse(reply);
   }
   const freshData = await cb();
-  await redisClient.setEx(key, EX, JSON.stringify(freshData));
+  await redisClient.setex(key, EX, JSON.stringify(freshData));
   console.log('new data cached');
   return freshData;
 };
