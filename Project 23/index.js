@@ -66,6 +66,7 @@ app.put('/v1/comments/:commentId', async (req, res) => {
       'tags',
       JSON.stringify(tags)
     ),
+    await redisClient.del(`tags:${commentId}`),
     redisClient.sadd(`tags:${commentId}`, tags),
   ]);
 
