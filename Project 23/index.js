@@ -157,7 +157,6 @@ app.post('/v2/comments', async (req, res) => {
     redisClient.rpush('comments', commentId),
 
     // add commeent to JSON
-    //redisClient.json.set(`comment:${commentId}`, '$', comment),
     redisClient.call(
       'JSON.SET',
       `comment:${commentId}`,

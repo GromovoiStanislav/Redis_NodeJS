@@ -1,5 +1,5 @@
 {
-  "name": "redis-caching",
+  "name": "redis-db",
   "version": "1.0.0",
   "description": "",
   "type": "module",
