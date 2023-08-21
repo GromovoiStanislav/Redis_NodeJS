@@ -1,0 +1,20 @@
+{
+  "name": "upstash",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "1": "node 1.js",
+    "2": "node 2.js",
+    "3": "node 3.js",
+    "4": "node 4.js",
+    "5": "node 5.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@upstash/redis": "^1.22.0",
+    "dotenv": "^16.3.1"
+  }
+}
