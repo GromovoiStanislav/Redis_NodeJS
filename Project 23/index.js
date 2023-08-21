@@ -291,6 +291,8 @@ app.get('/v2/comments/:commentId', async (req, res) => {
   res.json(comment);
 });
 
+//////////////////////////////////////////////////////////
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
   console.log('Server started on port ' + PORT);
