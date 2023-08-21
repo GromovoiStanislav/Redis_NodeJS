@@ -34,16 +34,18 @@ app.post('/v1/comments', async (req, res) => {
     author: req.cookies['userId'],
   };
 
-  await Promise.all([
-    // add commeent to list
-    redisClient.rpush('comments', commentId),
+  // await Promise.all([
+  //   redisClient.rpush('comments', commentId),
+  //   redisClient.sadd(`tags:${commentId}`, tags),
+  //   redisClient.hmset(`comment_details:${commentId}`, comment),
+  // ]);
 
-    // add tags to set
-    redisClient.sadd(`tags:${commentId}`, tags),
-
-    // add comment to hash
-    redisClient.hmset(`comment_details:${commentId}`, comment),
-  ]);
+  await redisClient
+    .multi()
+    .rpush('comments', commentId)
+    .sadd(`tags:${commentId}`, tags)
+    .hmset(`comment_details:${commentId}`, comment)
+    .exec();
 
   res.send(commentId);
 });
@@ -58,17 +60,26 @@ app.put('/v1/comments/:commentId', async (req, res) => {
     return;
   }
 
-  await Promise.all([
-    redisClient.hincrby(`comment_details:${commentId}`, 'upvotes', 1),
-    redisClient.hset(`comment_details:${commentId}`, 'text', text),
-    redisClient.hset(
-      `comment_details:${commentId}`,
-      'tags',
-      JSON.stringify(tags)
-    ),
-    await redisClient.del(`tags:${commentId}`),
-    redisClient.sadd(`tags:${commentId}`, tags),
-  ]);
+  // await Promise.all([
+  //   redisClient.hincrby(`comment_details:${commentId}`, 'upvotes', 1),
+  //   redisClient.hset(`comment_details:${commentId}`, 'text', text),
+  //   redisClient.hset(
+  //     `comment_details:${commentId}`,
+  //     'tags',
+  //     JSON.stringify(tags)
+  //   ),
+  //   await redisClient.del(`tags:${commentId}`),
+  //   redisClient.sadd(`tags:${commentId}`, tags),
+  // ]);
+
+  await redisClient
+    .multi()
+    .hincrby(`comment_details:${commentId}`, 'upvotes', 1)
+    .hset(`comment_details:${commentId}`, 'text', text)
+    .hset(`comment_details:${commentId}`, 'tags', JSON.stringify(tags))
+    .del(`tags:${commentId}`)
+    .sadd(`tags:${commentId}`, tags)
+    .exec();
 
   res.send('OK');
 });
@@ -82,11 +93,18 @@ app.delete('/v1/comments/:commentId', async (req, res) => {
     return;
   }
 
-  await Promise.all([
-    redisClient.lrem('comments', 0, commentId),
-    redisClient.del(`comment_details:${commentId}`),
-    redisClient.del(`tags:${commentId}`),
-  ]);
+  // await Promise.all([
+  //   redisClient.lrem('comments', 0, commentId),
+  //   redisClient.del(`comment_details:${commentId}`),
+  //   redisClient.del(`tags:${commentId}`),
+  // ]);
+
+  await redisClient
+    .multi()
+    .lrem('comments', 0, commentId)
+    .del(`comment_details:${commentId}`)
+    .del(`tags:${commentId}`)
+    .exec();
 
   res.send('OK');
 });
@@ -153,18 +171,21 @@ app.post('/v2/comments', async (req, res) => {
     author: req.cookies['userId'],
   };
 
-  await Promise.all([
-    // add commeent to list
-    redisClient.rpush('comments', commentId),
+  // await Promise.all([
+  //   redisClient.rpush('comments', commentId),
+  //   redisClient.call(
+  //     'JSON.SET',
+  //     `comment:${commentId}`,
+  //     '$',
+  //     JSON.stringify(comment)
+  //   ),
+  // ]);
 
-    // add commeent to JSON
-    redisClient.call(
-      'JSON.SET',
-      `comment:${commentId}`,
-      '$',
-      JSON.stringify(comment)
-    ),
-  ]);
+  await redisClient
+    .multi()
+    .rpush('comments', commentId)
+    .call('JSON.SET', `comment:${commentId}`, '$', JSON.stringify(comment))
+    .exec();
 
   res.send(commentId);
 });
@@ -179,23 +200,30 @@ app.put('/v2/comments/:commentId', async (req, res) => {
     return;
   }
 
-  await Promise.all([
-    redisClient.call('JSON.NUMINCRBY', `comment:${commentId}`, '$.upvotes', 1),
+  // await Promise.all([
+  //   redisClient.call('JSON.NUMINCRBY', `comment:${commentId}`, '$.upvotes', 1),
 
-    redisClient.call(
-      'JSON.SET',
-      `comment:${commentId}`,
-      '$.text',
-      JSON.stringify(text)
-    ),
+  //   redisClient.call(
+  //     'JSON.SET',
+  //     `comment:${commentId}`,
+  //     '$.text',
+  //     JSON.stringify(text)
+  //   ),
 
-    redisClient.call(
-      'JSON.SET',
-      `comment:${commentId}`,
-      '$.tags',
-      JSON.stringify(tags)
-    ),
-  ]);
+  //   redisClient.call(
+  //     'JSON.SET',
+  //     `comment:${commentId}`,
+  //     '$.tags',
+  //     JSON.stringify(tags)
+  //   ),
+  // ]);
+
+  await redisClient
+    .multi()
+    .call('JSON.NUMINCRBY', `comment:${commentId}`, '$.upvotes', 1)
+    .call('JSON.SET', `comment:${commentId}`, '$.text', JSON.stringify(text))
+    .call('JSON.SET', `comment:${commentId}`, '$.tags', JSON.stringify(tags))
+    .exec();
 
   res.send('OK');
 });
@@ -214,6 +242,13 @@ app.delete('/v2/comments/:commentId', async (req, res) => {
     //redisClient.call('JSON.DEL', `comment:${commentId}`),
     redisClient.del(`comment:${commentId}`),
   ]);
+
+  await redisClient
+    .multi()
+    .lrem('comments', 0, commentId)
+    //.call('JSON.DEL', `comment:${commentId}`)
+    .del(`comment:${commentId}`)
+    .exec();
 
   res.send('OK');
 });
