@@ -24,3 +24,4 @@
 - 21 - Redis caching with Express (JS)
 - 22 - Redis(ioredis) caching with Express (JS)
 - 23 - Redis(ioredis) as database with Express (JS)
+- 24 - Redis(redis) as database with Express (JS)
