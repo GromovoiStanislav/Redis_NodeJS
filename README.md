@@ -25,3 +25,4 @@
 - 22 - Redis(ioredis) caching with Express (JS)
 - 23 - Redis(ioredis) as database with Express (JS)
 - 24 - Redis(redis) as database with Express (JS)
+- 25 - Redis(@upstash/redis) as database with Express (JS)
