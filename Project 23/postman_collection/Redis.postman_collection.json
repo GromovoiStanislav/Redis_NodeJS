@@ -6,18 +6,19 @@
 	},
 	"item": [
 		{
-			"name": "comments",
+			"name": "v1/comments",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/comments",
+					"raw": "http://localhost:3000/v1/comments",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
+						"v1",
 						"comments"
 					]
 				}
@@ -25,13 +26,155 @@
 			"response": []
 		},
 		{
-			"name": "comments",
+			"name": "v2/comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v2/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v2",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/comments/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v2/comments/NCuifwLykIw_218aUxgD0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v2",
+						"comments",
+						"NCuifwLykIw_218aUxgD0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/comments/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v2/comments/NCuifwLykIw_218aUxgD0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v2",
+						"comments",
+						"NCuifwLykIw_218aUxgD0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/comments/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/comments/bUaAowtHfBFLpLGVCjLQb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"comments",
+						"bUaAowtHfBFLpLGVCjLQb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/comments/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/comments/bUaAowtHfBFLpLGVCjLQb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"comments",
+						"bUaAowtHfBFLpLGVCjLQb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/comments",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"text\":\"Modern NestJS in 30 Minutes\",\r\n     \"tags\":[\"redis\",\"nestjs\"]\r\n}",
+					"raw": "{\r\n    \"text\":\"Modern Redis in 30 Minutes\",\r\n     \"tags\":[\"redis\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -39,14 +182,104 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/comments",
+					"raw": "http://localhost:3000/v1/comments",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
+						"v1",
 						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/comments",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\":\"Modern NestJS in 30 Minutes\",\r\n     \"tags\":[\"redis\",\"NestJS\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v2/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v2",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v1/comments/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\":\"Modern Redis in 40 Minutes\",\r\n     \"tags\":[\"redis\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/comments/bUaAowtHfBFLpLGVCjLQb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"comments",
+						"bUaAowtHfBFLpLGVCjLQb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/comments/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\":\"Modern Redis in 40 Minutes\",\r\n     \"tags\":[\"redis\",\"node\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v2/comments/NCuifwLykIw_218aUxgD0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v2",
+						"comments",
+						"NCuifwLykIw_218aUxgD0"
 					]
 				}
 			},
