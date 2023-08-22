@@ -1,0 +1,20 @@
+{
+  "name": "ioredis",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "index": "node src/index.js",
+    "string": "node src/string.js",
+    "set": "node src/list.js",
+    "zset": "node src/zset.js",
+    "hash": "node src/hash.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ioredis": "^5.2.3"
+  }
+}

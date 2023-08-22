@@ -27,3 +27,4 @@
 - 24 - Redis(redis) as database with Express (JS)
 - 25 - Redis(@upstash/redis) as database with Express (JS)
 - 26 - Redis(@upstash/redis) examples (JS)
+- 27 - Redis(ioredis) examples (JS)
