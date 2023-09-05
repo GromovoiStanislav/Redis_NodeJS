@@ -1,4 +1,4 @@
-## Integrate Redis PUB/SUB in Express (JS)
+## Integrate Redis Pub/Sub in Express (JS)
 
 ### runs the producer
 

@@ -1,4 +1,4 @@
-# Simple microservice using Redis PubSub with Express (JS)
+# Simple microservice using Redis Pub/Sub with Express (JS)
 
 ```
 npm i node-redis-pubsub

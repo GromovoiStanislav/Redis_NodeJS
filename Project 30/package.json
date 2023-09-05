@@ -1,0 +1,18 @@
+{
+  "name": "redis-pub-sub",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start:orders": "node src/order",
+    "start:mail": "node src/mail",
+    "start:payment": "node src/payment"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "redis": "^4.6.8"
+  }
+}
