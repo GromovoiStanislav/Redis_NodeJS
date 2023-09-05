@@ -28,4 +28,5 @@
 - 25 - Redis(@upstash/redis) as database with Express (JS)
 - 26 - Redis(@upstash/redis) examples (JS)
 - 27 - Redis(ioredis) examples (JS)
-- 28 Pub/Sub with Redis(ioredis) + Fastify (JS)
+- 28 - Pub/Sub with Redis(ioredis) + Fastify (JS)
+- 29 - Pub/Sub with Redis(ioredis) + Fastify (TS)
