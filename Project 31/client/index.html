@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <h1></h1>
+
+      <div>
+        <ul id="messages"></ul>
+      </div>
+
+      <div>
+        <!-- <input id="message" type="text" /> -->
+        <textarea id="message"></textarea>
+        <br />
+        <button onclick="handleSubmitNewMessage()">Send message</button>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.socket.io/4.3.2/socket.io.min.js"
+      integrity="sha384-KAZ4DtjNhLChOB/hxXuKqhMLYvx3b5MlT55xPEiNmREKRzeEm+RVPlTnAn0ajQNs"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./chat-socket.js"></script>
+  </body>
+</html>
