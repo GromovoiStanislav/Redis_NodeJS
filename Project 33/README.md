@@ -1,4 +1,4 @@
-## Realtime Chat Application with Redis storage system (JS)
+## Realtime Chat Application with WebSockets, Redis storage system (JS)
 
 ```
 npm start

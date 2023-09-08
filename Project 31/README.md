@@ -1,1 +1,1 @@
-## Realtime Chat Application with WebSockets, Redis(ioredis) & Fastify (TS/JS)
+## Realtime Chat Application with WebSockets, Redis(ioredis) Pub/Sub & Fastify (TS/JS)

@@ -32,5 +32,5 @@
 - 29 - Pub/Sub with Redis(ioredis) + Fastify (TS)
 - 30 - Event Driven Microservices with Redis Pub/Sub + Express (JS)
 - 31 - Realtime Chat Application with WebSockets, Redis(ioredis) Pub/Sub & Fastify (TS/JS)
-- 32 - Realtime Chat Application with Redis storage system (JS)
-- 33 - Realtime Chat Application with Redis storage system (JS)
+- 32 - Realtime Chat Application with WebSockets, Redis storage system & Express (JS)
+- 33 - Realtime Chat Application with WebSockets, Redis storage system (JS)
