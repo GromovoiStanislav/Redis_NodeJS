@@ -1,0 +1,17 @@
+{
+  "name": "redis-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redis": "^4.6.8",
+    "websocket": "^1.0.34"
+  }
+}

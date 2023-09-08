@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebSocket Example</title>
+  </head>
+  <body>
+    <h1>WebSocket Example</h1>
+    <textarea
+      type="text"
+      id="messageInput"
+      placeholder="Enter your message"
+    ></textarea>
+    <br />
+    <button onclick="sendMessage()">Send</button>
+    <div id="messageLog"></div>
+
+    <script>
+      // Определение WebSocket
+      let ws = new WebSocket('ws://localhost:3000');
+
+      // Функция для отправки сообщения
+      function sendMessage() {
+        const messageInput = document.getElementById('messageInput');
+        const message = messageInput.value;
+        ws.send(message);
+        messageInput.value = ''; // Очистка поля ввода после отправки
+      }
+
+      // Обработчик сообщений от сервера
+      ws.onmessage = (message) => {
+        const messageLog = document.getElementById('messageLog');
+        messageLog.innerHTML += `Received: ${message.data}<br>`;
+      };
+    </script>
+  </body>
+</html>
