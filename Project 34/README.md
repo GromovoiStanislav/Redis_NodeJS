@@ -1,4 +1,4 @@
-## Realtime Chat Application with websocket, Redis Pub/Sub (JS)
+## Realtime Chat Application with WebSocket, Redis Pub/Sub (JS)
 
 ```
 npm start
