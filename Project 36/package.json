@@ -1,0 +1,17 @@
+{
+  "name": "redis-node-search-bikes",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "redis": "^4.6.8"
+  }
+}
