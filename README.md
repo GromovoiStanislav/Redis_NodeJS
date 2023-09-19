@@ -37,3 +37,4 @@
 - 34 - Realtime Chat Application with WebSocket, Redis Pub/Sub (JS)
 - 35 - Express app with Radis (PUB/Sub) microservice example (JS)
 - 36 - Redis JSON Search and Aggregations examples (JS)\*\*
+- 37 - Redis JSON Demo (JS)\*
