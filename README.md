@@ -35,3 +35,4 @@
 - 32 - Realtime Chat Application with socket.io, Redis storage system & Express (JS)
 - 33 - Realtime Chat Application with socket.io, Redis storage system (JS)
 - 34 - Realtime Chat Application with websocket, Redis Pub/Sub (JS)
+- 35 - Express app with Radis (PUB/Sub) microservice example (JS)
