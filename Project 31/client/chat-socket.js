@@ -14,6 +14,7 @@ const NEW_MESSAGE_CHANNEL = 'chat:new-message';
 
 const handleSubmitNewMessage = () => {
   socket.emit(NEW_MESSAGE_CHANNEL, { message: message.value });
+  message.value = '';
 };
 
 socket.on(NEW_MESSAGE_CHANNEL, (msg) => {
