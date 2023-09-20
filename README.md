@@ -38,3 +38,4 @@
 - 35 - Express app with Radis (PUB/Sub) microservice example (JS)
 - 36 - Redis JSON Search and Aggregations examples (JS)\*\*
 - 37 - Redis JSON Demo (JS)\*
+- 38 - Redis (ioredis) JSON Search using Apollo GraphQL (JS)\*\*
