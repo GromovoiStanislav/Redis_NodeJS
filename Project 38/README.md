@@ -91,4 +91,32 @@ query States {
   }
 }
 
+query States {
+  states {
+    name
+    abbreviation
+    places {
+      id
+      description
+      city {
+        name
+      }
+    }
+  }
+}
+
+query States {
+  states {
+    name
+    abbreviation
+    cities {
+      name
+      places {
+        id
+        description
+      }
+    }
+  }
+}
+
 ```

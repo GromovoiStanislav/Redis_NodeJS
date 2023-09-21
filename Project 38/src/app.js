@@ -7,22 +7,20 @@ import config from './config.js';
 import typeDefs from './schema.js';
 import resolvers from './resolvers.js';
 import HauntedPlacesDataSource from './haunted-places.js';
+// import HauntedPlacesDataSource from './haunted-places-dataloader.js';
 
 async function main() {
   let redis = new Redis(config.REDIS_URL);
+  const hauntedPlaces = new HauntedPlacesDataSource(redis);
 
   let server = new ApolloServer({
     typeDefs,
     resolvers,
-    dataSources: () => ({
-      hauntedPlaces: new HauntedPlacesDataSource(redis),
-    }),
   });
 
   const info = await startStandaloneServer(server, {
     listen: { port: config.PORT },
     context: async () => {
-      const hauntedPlaces = new HauntedPlacesDataSource(redis);
       return {
         hauntedPlaces,
       };

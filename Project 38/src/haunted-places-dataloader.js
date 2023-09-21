@@ -1,3 +1,5 @@
+import DataLoader from 'dataloader';
+
 const PLACES_INDEX = 'places:index';
 const CITIES_INDEX = 'cities:index';
 const STATES_INDEX = 'states:index';
@@ -7,7 +9,27 @@ const LIMIT = 10000;
 export default class HauntedPlacesDataSource {
   constructor(redis) {
     this.redis = redis;
-    this.cache = new Map(); // Простое кэширование в памяти
+    this.loader = new DataLoader((requests) => this.load(requests), {
+      cacheKeyFn: JSON.stringify,
+    });
+  }
+
+  async load(requests) {
+    return Promise.all(
+      requests.map(async (request) => {
+        if (request.type === 'hash') return this.redis.hgetall(request.key);
+
+        if (request.type === 'search')
+          return this.redis.call(
+            'FT.SEARCH',
+            request.index,
+            request.query,
+            'LIMIT',
+            0,
+            LIMIT
+          );
+      })
+    );
   }
 
   async fetchPlace(id) {
@@ -54,53 +76,32 @@ export default class HauntedPlacesDataSource {
   }
 
   async fetch(key) {
-    const cachedValue = this.cache.get(key);
-    if (cachedValue !== undefined) {
-      return cachedValue;
-    } else {
-      const value = await this.redis.hgetall(key);
-      this.cache.set(key, value);
-      return value;
-    }
+    return this.loader.load({ type: 'hash', key });
   }
 
   async find(index, query) {
-    const cacheKey = JSON.stringify({ type: 'search', index, query });
-    const cachedValue = this.cache.get(cacheKey);
-    if (cachedValue !== undefined) {
-      
-      return cachedValue;
-    } else {
-      const [count, ...foundKeysAndValues] = await this.redis.call(
-        'FT.SEARCH',
-        index,
-        query,
-        'LIMIT',
-        0,
-        LIMIT
-      );
+    let [count, ...foundKeysAndValues] = await this.loader.load({
+      type: 'search',
+      index,
+      query,
+    });
 
-      const keys = foundKeysAndValues.filter(
-        (_entry, index) => index % 2 === 0
-      );
-      const values = foundKeysAndValues
-        .filter((_entry, index) => index % 2 !== 0)
-        .map(this.arrayToObject);
+    let keys = foundKeysAndValues.filter((_entry, index) => index % 2 === 0);
 
-      keys.forEach((key, index) => {
-        const hashKey = JSON.stringify({ type: 'hash', key });
-        this.cache.set(hashKey, values[index]);
-      });
+    let values = foundKeysAndValues
+      .filter((_entry, index) => index % 2 !== 0)
+      .map(this.arrayToObject);
 
-      this.cache.set(cacheKey, values);
+    keys.forEach((key, index) =>
+      this.loader.prime({ type: 'hash', key }, values[index])
+    );
 
-      return values;
-    }
+    return values;
   }
 
   arrayToObject(array) {
-    const keys = array.filter((_entry, index) => index % 2 === 0);
-    const values = array.filter((_entry, index) => index % 2 !== 0);
+    let keys = array.filter((_entry, index) => index % 2 === 0);
+    let values = array.filter((_entry, index) => index % 2 !== 0);
 
     return keys.reduce((object, key, index) => {
       object[key] = values[index];
