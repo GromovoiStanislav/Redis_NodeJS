@@ -32,6 +32,13 @@ query State {
   state(state: "NY") {
     name
     abbreviation
+    places {
+      id
+      description
+      city {
+        name
+      }
+    }
   }
 }
 

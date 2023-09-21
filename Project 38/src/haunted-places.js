@@ -54,12 +54,13 @@ export default class HauntedPlacesDataSource {
   }
 
   async fetch(key) {
-    const cachedValue = this.cache.get(key);
+    const hashKey = JSON.stringify({ type: 'hash', key });
+    const cachedValue = this.cache.get(hashKey);
     if (cachedValue !== undefined) {
       return cachedValue;
     } else {
       const value = await this.redis.hgetall(key);
-      this.cache.set(key, value);
+      this.cache.set(hashKey, value);
       return value;
     }
   }
@@ -68,7 +69,6 @@ export default class HauntedPlacesDataSource {
     const cacheKey = JSON.stringify({ type: 'search', index, query });
     const cachedValue = this.cache.get(cacheKey);
     if (cachedValue !== undefined) {
-      
       return cachedValue;
     } else {
       const [count, ...foundKeysAndValues] = await this.redis.call(

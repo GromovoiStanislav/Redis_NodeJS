@@ -1,0 +1,31 @@
+import 'dotenv/config';
+import { createClient } from 'redis';
+
+const client = createClient({
+  url: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
+});
+await client.connect();
+
+// console.log(
+//   JSON.stringify(await client.ft.search('places:index', '*'), null, 2)
+// );
+
+console.log(
+  JSON.stringify(
+    await client.ft.search('states:index', '*', {
+      LIMIT: { from: 0, size: 10000 },
+    }),
+    null,
+    2
+  )
+);
+
+// console.log(
+//   JSON.stringify(
+//     await client.ft.search('places:index', '@city:{Westland} @state:{MI}', {
+//       LIMIT: { from: 0, size: 10000 },
+//     }),
+//     null,
+//     2
+//   )
+// );
