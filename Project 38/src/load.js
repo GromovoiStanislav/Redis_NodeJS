@@ -22,7 +22,7 @@ async function addIndices() {
 
 function addPlaceIndex(pipeline, indices) {
   if (indices.includes(PLACES_INDEX)) {
-    dropIndex(PLACES_INDEX);
+    dropIndex(pipeline, PLACES_INDEX, indices);
   }
   addIndex(
     pipeline,
@@ -43,7 +43,7 @@ function addPlaceIndex(pipeline, indices) {
 
 function addCityIndex(pipeline, indices) {
   if (indices.includes(CITIES_INDEX)) {
-    dropIndex(CITIES_INDEX);
+    dropIndex(pipeline, CITIES_INDEX, indices);
   }
   addIndex(
     pipeline,
@@ -60,7 +60,7 @@ function addCityIndex(pipeline, indices) {
 
 function addStateIndex(pipeline, indices) {
   if (indices.includes(STATES_INDEX)) {
-    dropIndex(STATES_INDEX);
+    dropIndex(pipeline, STATES_INDEX, indices);
   }
   addIndex(
     pipeline,
@@ -73,7 +73,7 @@ function addStateIndex(pipeline, indices) {
   );
 }
 
-function dropIndex(pipeline, index) {
+function dropIndex(pipeline, index, indices) {
   if (indices.includes(index)) {
     pipeline.call('FT.DROPINDEX', index);
   }

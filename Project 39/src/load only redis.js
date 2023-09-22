@@ -1,8 +1,7 @@
 import 'dotenv/config';
 import csv from 'csv-parser';
 import fs from 'node:fs';
-import { createClient } from 'redis';
-import Redis from 'ioredis';
+import { createClient, SchemaFieldTypes } from 'redis';
 
 const redis = createClient({
   url: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
@@ -14,89 +13,85 @@ const CITIES_INDEX = 'cities:index';
 const STATES_INDEX = 'states:index';
 
 async function addIndices() {
-  let redis = new Redis(process.env.REDIS_URL ?? 'redis://127.0.0.1:6379');
-  let indices = await redis.call('FT._LIST');
+  const indices = await redis.ft._list();
 
-  let pipeline = redis.pipeline();
-  addPlaceIndex(pipeline, indices);
-  addCityIndex(pipeline, indices);
-  addStateIndex(pipeline, indices);
-  pipeline.exec();
-  redis.quit();
-  return;
+  const pipeline = redis.multi();
+  await addPlaceIndex(pipeline, indices); //не работает для 'HASH'
+  await addCityIndex(pipeline, indices); //не работает для 'HASH'
+  await addStateIndex(pipeline, indices); //не работает для 'HASH'
+  return pipeline.exec();
 }
 
-function addPlaceIndex(pipeline, indices) {
+async function addPlaceIndex(pipeline, indices) {
   if (indices.includes(PLACES_INDEX)) {
-    dropIndex(pipeline, PLACES_INDEX, indices);
+    dropIndex(PLACES_INDEX, indices);
   }
-  addIndex(
-    pipeline,
-    PLACES_INDEX,
-    'place:',
-    'location',
-    'TEXT',
-    'description',
-    'TEXT',
-    'coordinates',
-    'GEO',
-    'city',
-    'TAG',
-    'state',
-    'TAG'
-  );
+  addIndex(pipeline, PLACES_INDEX, 'place:', {
+    '$.location': {
+      type: SchemaFieldTypes.TEXT,
+      SORTABLE: true,
+    },
+    '$.description': {
+      type: SchemaFieldTypes.TEXT,
+      SORTABLE: 'UNF',
+    },
+    '$.coordinates': {
+      type: SchemaFieldTypes.GEO,
+    },
+    '$.city': {
+      type: SchemaFieldTypes.TAG,
+      AS: 'city',
+    },
+    '$.state': {
+      type: SchemaFieldTypes.TAG,
+      AS: 'state',
+    },
+  });
 }
 
-function addCityIndex(pipeline, indices) {
+async function addCityIndex(pipeline, indices) {
   if (indices.includes(CITIES_INDEX)) {
-    dropIndex(pipeline, CITIES_INDEX, indices);
+    dropIndex(CITIES_INDEX, indices);
   }
-  addIndex(
-    pipeline,
-    CITIES_INDEX,
-    'city:',
-    'name',
-    'TAG',
-    'state',
-    'TAG',
-    'coordinates',
-    'GEO'
-  );
+  addIndex(pipeline, CITIES_INDEX, 'city:', {
+    '$.name': {
+      type: SchemaFieldTypes.TAG,
+    },
+    '$.state': {
+      type: SchemaFieldTypes.TAG,
+    },
+    '$.coordinates': {
+      type: SchemaFieldTypes.GEO,
+      AS: 'coordinates',
+    },
+  });
 }
 
-function addStateIndex(pipeline, indices) {
+async function addStateIndex(pipeline, indices) {
   if (indices.includes(STATES_INDEX)) {
-    dropIndex(pipeline, STATES_INDEX, indices);
+    await dropIndex(STATES_INDEX, indices);
   }
-  addIndex(
-    pipeline,
-    STATES_INDEX,
-    'state:',
-    'name',
-    'TAG',
-    'abbreviation',
-    'TAG'
-  );
+  await addIndex(pipeline, STATES_INDEX, 'state:', {
+    '$.name': {
+      type: SchemaFieldTypes.TAG,
+    },
+    '$.abbreviation': {
+      type: SchemaFieldTypes.TAG,
+    },
+  });
 }
 
-function dropIndex(pipeline, index, indices) {
+async function dropIndex(index, indices) {
   if (indices.includes(index)) {
-    pipeline.call('FT.DROPINDEX', index);
+    await redis.ft.dropIndex(index);
   }
 }
 
-function addIndex(pipeline, index, prefix, ...schema) {
-  pipeline.call(
-    'FT.CREATE',
-    index,
-    'ON',
-    'hash',
-    'PREFIX',
-    1,
-    prefix,
-    'SCHEMA',
-    ...schema
-  );
+async function addIndex(pipeline, index, prefix, schema) {
+  await pipeline.ft.create(index, schema, {
+    ON: 'HASH',
+    PREFIX: prefix,
+  });
 }
 
 async function loadData() {
@@ -161,7 +156,7 @@ async function quit() {
 
 async function main() {
   await flushAll();
-  await addIndices();
+  await addIndices(); //не работает для 'HASH'
   await loadData();
   await quit();
 }

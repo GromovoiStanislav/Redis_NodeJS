@@ -4,7 +4,7 @@ const PLACES_INDEX = 'places:index';
 const CITIES_INDEX = 'cities:index';
 const STATES_INDEX = 'states:index';
 
-const LIMIT = 10000;
+const LIMIT = 5;
 
 export default class HauntedPlacesDataSource {
   constructor(redis) {

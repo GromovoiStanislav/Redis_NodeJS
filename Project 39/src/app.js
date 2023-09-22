@@ -7,8 +7,8 @@ import { createClient } from 'redis';
 import config from './config.js';
 import typeDefs from './schema.js';
 import resolvers from './resolvers.js';
-// import HauntedPlacesDataSource from './haunted-places-without-cach.js';
-import HauntedPlacesDataSource from './haunted-places-with-cach.js';
+import HauntedPlacesDataSource from './haunted-places-without-cach.js';
+//import HauntedPlacesDataSource from './haunted-places-with-cach.js';
 //import HauntedPlacesDataSource from './haunted-places-with-dataloader.js';
 
 async function main() {
