@@ -1,0 +1,19 @@
+{
+  "name": "redis-streams-jobs",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start:consumer": "node consumer.js",
+    "start:consumer-group": "node consumer-group.js",
+    "start:producer": "node producer.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "redis": "^4.6.8"
+  }
+}

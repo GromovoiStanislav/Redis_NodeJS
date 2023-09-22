@@ -41,3 +41,4 @@
 - 38 - Redis (ioredis) HASH Search using Apollo GraphQL (JS)\*\*
 - 39 - Redis (redis) HASH Search using Apollo GraphQL (JS)\*\*
 - 40 - Redis (redis) JSON Search using Apollo GraphQL (JS)\*\*
+- 41 - Redis Streams Jobs (JS)\*\*
