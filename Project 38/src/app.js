@@ -6,8 +6,9 @@ import Redis from 'ioredis';
 import config from './config.js';
 import typeDefs from './schema.js';
 import resolvers from './resolvers.js';
-//import HauntedPlacesDataSource from './haunted-places.js';
-import HauntedPlacesDataSource from './haunted-places-dataloader.js';
+import HauntedPlacesDataSource from './haunted-places-without-cach.js';
+//import HauntedPlacesDataSource from './haunted-places-with-cach.js';
+// import HauntedPlacesDataSource from './haunted-places-with-dataloader.js';
 
 async function main() {
   let redis = new Redis(config.REDIS_URL);
