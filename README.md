@@ -40,4 +40,4 @@
 - 37 - Redis JSON Demo (JS)\*
 - 38 - Redis (ioredis) HASH Search using Apollo GraphQL (JS)\*\*
 - 39 - Redis (redis) HASH Search using Apollo GraphQL (JS)\*\*
-- 39 - Redis (redis) JSON Search using Apollo GraphQL (JS)\*\*
+- 40 - Redis (redis) JSON Search using Apollo GraphQL (JS)\*\*
