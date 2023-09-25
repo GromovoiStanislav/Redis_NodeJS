@@ -42,3 +42,5 @@
 - 39 - Redis (redis) HASH Search using Apollo GraphQL (JS)\*\*
 - 40 - Redis (redis) JSON Search using Apollo GraphQL (JS)\*\*
 - 41 - Redis Streams Jobs (JS)\*\*
+- 42 - Redis Keyspace Notifications (JS)\*
+
