@@ -42,11 +42,15 @@ export const create = async (req, res) => {
   const albumData = req.body;
   albumData.condition = parseInt(albumData.condition);
   albumData.price = parseInt(albumData.price);
-  albumData.forSale = 'true' && true;
 
   await repository
-    .createAndSave(albumData)
-    .then(async (response) => res.json(response))
+    .save(albumData)
+    .then(async (album) =>
+      res.json({
+        id: album[EntityId],
+        ...album,
+      })
+    )
     .catch((e) => res.json({ error: e.message }));
 };
 

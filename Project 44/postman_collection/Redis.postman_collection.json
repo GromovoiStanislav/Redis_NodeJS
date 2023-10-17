@@ -63,6 +63,38 @@
 			"response": []
 		},
 		{
+			"name": "api/albums",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"artist\": \"The Smashing Pumpkins\",\r\n    \"title\": \"Siamese Dream\",\r\n    \"condition\": 5,\r\n    \"format\": \"CD\",\r\n    \"comments\": \"a bit dented and scratched, but plays still.\",\r\n    \"price\": 4,\r\n    \"forSale\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/albums",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "api/albums/search",
 			"request": {
 				"auth": {
@@ -135,6 +167,30 @@
 						"api",
 						"albums",
 						"01HCW5A5250YG90CZVGJWEBAQF"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/albums/:entityID Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/albums/01HCXX5NXEND3WE8NERJYH1MV9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"albums",
+						"01HCXX5NXEND3WE8NERJYH1MV9"
 					]
 				}
 			},

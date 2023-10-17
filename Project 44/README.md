@@ -37,13 +37,14 @@ Example Call:
 
 ```
 POST - api/albums
-body: {'artist': 'The Smashing Pumpkins',
-       'title': 'Siamese Dream',
-       'condition': 5,
-       'format': 'CD',
-       'comments': 'a bit dented and scratched, but plays still.',
-       'price': 4,
-       'forSale': true
+body: {
+       "artist": "The Smashing Pumpkins",
+       "title": "Siamese Dream",
+       "condition": 5,
+       "format": "CD",
+       "comments": "a bit dented and scratched, but plays still.",
+       "price": 4,
+       "forSale": true
        }
 ```
 
