@@ -21,8 +21,8 @@ const personSchema = new Schema(
 );
 export const personRepository = new Repository(personSchema, redisClient);
 
-const usersSchema = new Schema(
-  'users',
+const userSchema = new Schema(
+  'user',
   {
     id: { type: 'number', sortable: true },
     name: { type: 'string' },
@@ -47,10 +47,10 @@ const usersSchema = new Schema(
   },
   { dataStructure: 'JSON' }
 );
-export const usersRepository = new Repository(usersSchema, redisClient);
+export const usersRepository = new Repository(userSchema, redisClient);
 
-const albumsSchema = new Schema(
-  'albums',
+const albumSchema = new Schema(
+  'album',
   {
     userId: { type: 'number' },
     id: { type: 'number', sortable: true },
@@ -58,10 +58,10 @@ const albumsSchema = new Schema(
   },
   { dataStructure: 'JSON' }
 );
-export const albumsRepository = new Repository(albumsSchema, redisClient);
+export const albumsRepository = new Repository(albumSchema, redisClient);
 
-const photosSchema = new Schema(
-  'photos',
+const photoSchema = new Schema(
+  'photo',
   {
     albumId: { type: 'number' },
     id: { type: 'number', sortable: true },
@@ -71,6 +71,18 @@ const photosSchema = new Schema(
   },
   { dataStructure: 'JSON' }
 );
-export const photosRepository = new Repository(photosSchema, redisClient);
+export const photosRepository = new Repository(photoSchema, redisClient);
+
+const todoSchema = new Schema(
+  'todo',
+  {
+    userId: { type: 'number' },
+    id: { type: 'number', sortable: true },
+    title: { type: 'string' },
+    completed: { type: 'boolean' },
+  },
+  { dataStructure: 'JSON' }
+);
+export const todosRepository = new Repository(todoSchema, redisClient);
 
 export { EntityId };

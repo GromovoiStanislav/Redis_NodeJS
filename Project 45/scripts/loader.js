@@ -11,6 +11,7 @@ import {
   usersRepository,
   albumsRepository,
   photosRepository,
+  todosRepository,
 } from '../db/db.config.js';
 
 const flushAll = async () => {
@@ -87,9 +88,28 @@ const loadPhotos = async () => {
   console.log(`Entries created: ${results.length}`);
 };
 
+const loadTodos = async () => {
+  const response = await axios.get(
+    'https://jsonplaceholder.typicode.com/todos'
+  );
+  response.data.forEach(async (photo) => {
+    await todosRepository.save(photo);
+  });
+
+  //////////////// createIndex //////////////
+  await todosRepository.dropIndex();
+  console.log('Index Dropped');
+  await todosRepository.createIndex();
+  console.log('Entries Indexed');
+  const results = await todosRepository.search().return.all();
+  console.log(`Entries created: ${results.length}`);
+};
+
 await flushAll();
-await loadPersons();
+// await loadPersons();
 await loadUsers();
-await loadAlbums();
-await loadPhotos();
+// await loadAlbums();
+// await loadPhotos();
+await loadTodos();
+
 process.exit(0);

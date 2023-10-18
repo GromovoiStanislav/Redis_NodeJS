@@ -25,6 +25,14 @@ import {
   getAllByAlbumId as getPhotosByAlbumId,
 } from './controllers/photos.controller.js';
 
+import {
+  getAll as getAllTodos,
+  getOne as getOneTodo,
+  getAllByUserId as getTodoByUserId,
+  getAllCompleted as getAllCompletedTodos,
+  getAllNotCompleted as getAllNotCompletedTodos,
+} from './controllers/todos.controller.js';
+
 (async () => {
   app.use(json());
   app.use(urlencoded({ extended: true }));
@@ -35,6 +43,7 @@ import {
   app.get('/api/users/', getAllUsers);
   app.get('/api/users/:id', getOneUser);
   app.get('/api/users/:userId/albums', getAlbumsByUserId);
+  app.get('/api/users/:userId/todos', getTodoByUserId);
 
   app.get('/api/albums/', getAllAlbums);
   app.get('/api/albums/:id', getOneAlbum);
@@ -42,6 +51,11 @@ import {
 
   app.get('/api/photos/', getAllPhotos);
   app.get('/api/photos/:id', getOnePhoto);
+
+  app.get('/api/todos/', getAllTodos);
+  app.get('/api/todos/completed', getAllCompletedTodos);
+  app.get('/api/todos/notcompleted', getAllNotCompletedTodos);
+  app.get('/api/todos/:id', getOneTodo);
 
   app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);
