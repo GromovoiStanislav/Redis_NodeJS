@@ -47,4 +47,5 @@
 - 44 - Using RedisJSON is a NoSQL database with Express and Redis-OM (JS)\*
 - 45 - Using Redis-OM: define schema with nested object (JS)
 - 46 - Redis caching with Express (JS)
-- 47 - Redis(redis) Rate Limiting app (JS)
+- 47 - Redis(redis) Rate limiting app (JS)
+- 48 - Redis(ioredis) Rate limiting app (JS)
