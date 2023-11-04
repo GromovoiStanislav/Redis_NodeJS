@@ -4,7 +4,7 @@ const RedisStore = require('rate-limit-redis');
 
 const { endpointUri } = require('../config').redis;
 
-const redisClient = redis.createClient(endpointUri);
+const redisClient = redis.createClient({ url: endpointUri });
 redisClient.on('error', (err) => console.log('Redis Client Error', err));
 redisClient.connect();
 
