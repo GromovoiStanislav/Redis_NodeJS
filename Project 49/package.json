@@ -1,0 +1,23 @@
+{
+  "name": "ioredis",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "basic_operations": "node src/basic_operations.js",
+    "string": "node src/string.js",
+    "list": "node src/list.js",
+    "module": "node src/module.js",
+    "set": "node src/set.js",
+    "zset": "node src/zset.js",
+    "hash": "node src/hash.js",
+    "ttl": "node src/ttl.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.3.2"
+  }
+}

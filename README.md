@@ -49,3 +49,4 @@
 - 46 - Redis caching with Express (JS)
 - 47 - Redis(redis) Rate limiting app (JS)
 - 48 - Redis(ioredis) Rate limiting app (JS)
+- 49 - Redis (ioredis) official examples (JS)
