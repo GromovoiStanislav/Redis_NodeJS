@@ -11,7 +11,10 @@
     "set": "node src/set.js",
     "zset": "node src/zset.js",
     "hash": "node src/hash.js",
-    "ttl": "node src/ttl.js"
+    "ttl": "node src/ttl.js",
+    "stream-1": "node src/stream_1.js",
+    "stream-2": "node src/stream_2.js",
+    "stream-3": "node src/stream_3.js"
   },
   "keywords": [],
   "author": "",

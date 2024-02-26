@@ -12,4 +12,15 @@ export const redis = new Redis({
   password: process.env.REDIS_PASSWORD || '',
   db: 0, // Defaults to 0
 });
+
+export const createRedisConnection = () => {
+  return new Redis({
+    host: process.env.REDIS_HOST || '127.0.0.1',
+    port: process.env.REDIS_PORT || 6379,
+    username: process.env.REDIS_USER || '',
+    password: process.env.REDIS_PASSWORD || '',
+    db: 0, // Defaults to 0
+  });
+};
+
 console.log('Connected to Redis...');
