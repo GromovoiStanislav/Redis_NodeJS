@@ -53,3 +53,4 @@
 - 50 - Express with Redis (ioredis) as DB official example (JS)
 - 51 - Using DataLoader with Redis (redis) (JS)
 - 52 - Using Redis (ioredis) Pub/Sub example (JS)
+- 53 - Using Redis (redis-om) as a Database with Koa (JS)
