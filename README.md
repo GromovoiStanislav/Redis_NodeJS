@@ -51,3 +51,4 @@
 - 48 - Redis(ioredis) Rate limiting app (JS)
 - 49 - Redis (ioredis) official examples (JS)
 - 50 - Express with Redis (ioredis) as DB official example (JS)
+- 51 - Using DataLoader with Redis (redis) (JS)
