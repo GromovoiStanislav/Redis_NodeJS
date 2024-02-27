@@ -1,0 +1,19 @@
+{
+  "name": "ioredis",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "sub": "node sub/index.js",
+    "pub": "node pub/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tinyhttp/app": "^2.2.3",
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.3.2",
+    "milliparsec": "^2.3.0"
+  }
+}
