@@ -1,0 +1,17 @@
+{
+  "name": "ioredis",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "basics": "node src/basics.js",
+    "stream-3": "node src/stream_3.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.3.2"
+  }
+}
