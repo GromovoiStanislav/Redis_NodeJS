@@ -1,0 +1,29 @@
+@api = http://localhost:3000
+@id=01HQQ76B741CGN5960T09V2MCT
+
+
+###
+POST {{api}}/cars
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "make": "Audi",
+  "model": "100",
+  "description": "Audi 100. Another description...",
+  "image": true
+}
+
+
+###
+GET {{api}}/cars
+
+
+###
+GET {{api}}/cars/{{id}}
+
+
+###
+GET {{api}}/cars/search?q=another
+
+
