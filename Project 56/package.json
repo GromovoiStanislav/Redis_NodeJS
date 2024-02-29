@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "basics": "node src/basics.js",
-    "stream-3": "node src/stream_3.js"
+    "streaming_scan": "node src/streaming_scan.js",
+    "transformers": "node src/transformers.js"
   },
   "keywords": [],
   "author": "",

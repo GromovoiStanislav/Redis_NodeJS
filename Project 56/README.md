@@ -8,5 +8,6 @@
 
 ```
 npm run basics
-npm run stream-1
+npm run streaming_scan
+npm run transformers
 ```

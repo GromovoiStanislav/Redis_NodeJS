@@ -1,11 +1,9 @@
 import 'dotenv/config';
 import Redis from 'ioredis';
 
-export const redis = new Redis(
-  process.env.REDIS_URL || 'redis://127.0.0.1:6379'
-);
+const redis = new Redis(process.env.REDIS_URL || 'redis://127.0.0.1:6379');
 
-// export const redis = new Redis({
+// const redis = new Redis({
 //   host: process.env.REDIS_HOST || '127.0.0.1',
 //   port: process.env.REDIS_PORT || 6379,
 //   username: process.env.REDIS_USER || '',
@@ -13,7 +11,7 @@ export const redis = new Redis(
 //   db: 0, // Defaults to 0
 // });
 
-export const createRedisConnection = () => {
+const createRedisConnection = () => {
   return new Redis({
     host: process.env.REDIS_HOST || '127.0.0.1',
     port: process.env.REDIS_PORT || 6379,
@@ -24,3 +22,5 @@ export const createRedisConnection = () => {
 };
 
 console.log('Connected to Redis...');
+
+export { Redis, redis, createRedisConnection };
