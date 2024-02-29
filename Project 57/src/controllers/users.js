@@ -1,6 +1,6 @@
 const UserController = {
   getAll: async (req, res) => {
-    console.log('getAll');
+
     // simulate the time to retrieve the user list
     await new Promise((resolve) => setTimeout(resolve, 250));
 
