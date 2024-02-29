@@ -58,3 +58,4 @@
 - 55 - Using Redis (redis-om) as a Database with Koa (JS)
 - 56 - Redis (ioredis) examples\* (JS)
 - 57 - Redis (redis) caching with Express (JS)
+- 58 - Redis (redis) caching with Express (JS)
