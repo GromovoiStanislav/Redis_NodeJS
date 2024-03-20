@@ -1,13 +1,10 @@
 @api = http://localhost:3000
 
-
 ###
 GET {{api}}/users
 
-
 ###
 GET {{api}}/catalog
-
 
 ###
 GET {{api}}/clear-cache

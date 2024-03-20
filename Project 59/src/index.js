@@ -9,7 +9,7 @@ app.use(pageController);
 
 const CACHED_PAGES = ['/', '/catalog', '/users'];
 
-app.get('*', pageController, (req, res) => {
+app.get('*', pageController, async (req, res) => {
   console.log('@route handler', req.path);
 
   if (req.path === '/clear-cache') {
