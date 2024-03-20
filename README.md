@@ -59,3 +59,4 @@
 - 56 - Redis (ioredis) examples\* (JS)
 - 57 - Redis (redis) caching with Express (JS)
 - 58 - Redis (redis) caching with Express (JS)
+- 59 - Redis (redis) caching with Express (JS)
