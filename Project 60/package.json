@@ -1,0 +1,21 @@
+{
+  "name": "redis-example",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "caching": "tsx watch caching.ts",
+    "rate-limit": "tsx watch rate-limit.ts",
+    "pubsub": "tsx watch pubsub.ts",
+    "findby": "tsx watch findby.ts",
+    "transactions": "tsx watch transactions.ts"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "tsx": "^4.7.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.3.2"
+  }
+}
